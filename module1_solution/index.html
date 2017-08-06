@@ -1,30 +1,37 @@
-<!doctype html>
-<html ng-app="LunchCheck" lang="en">
+<!DOCTYPE html>
+<html ng-app='LunchCheck'>
   <head>
-    <title>Lunch Checker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <meta charset="utf-8">
+      <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .green{
+        color:green;
+      }
+      .red{
+        color:red;
+      }
     </style>
   </head>
-  <script src="angular.min.js"></script>
-<body>
-   <div class="container">
-     <h1>Lunch Checker</h1>
+  <body>
+    <h1>Lunch Checker</h1>
+    <div class="container" ng-controller='LunchCheckController'>
+      <div class="form-group">
+     I'm not considering an empty item, i.e., , , as an item towards to the count.
+      <input type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control"
+             ng-model="name">
+     </div>
+      <div class="form-group" >
+     <button class="btn btn-default" ng-click="separateFood()">Check if too much</button>
 
-         <div class="form-group">
-             <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
-         </div>
-         <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
-         </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
-         </div>
-   </div>
+               </div>
+     <div class="form-group message" ng-style="customStyle.style">
+                <!-- Your message can go here. -->
+                 {{msg}}
+     </div>
 
-</body>
+    </div>
+  </body>
 </html>
