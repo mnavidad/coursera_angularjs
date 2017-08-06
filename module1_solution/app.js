@@ -6,18 +6,20 @@ angular.module('LunchCheck', [])
 
 LunchCheckController.$inject = ['$scope', '$filter'];
 function LunchCheckController($scope, $filter) {
-  $scope.name = "";
+  $scope.food = "";
   $scope.msg ="";
   $scope.customStyle = {};
-  var currentMsg;
+
 
   $scope.separateFood = function () {
 
-    $scope.name = splitString($scope.name,",");
-    currentMsg = $scope.name;
+    $scope.msg = splitString($scope.food,",");
+    var foodItems =  $filter('filter');
+    $scope.food = foodItems($scope.food);
 
-    $scope.msg = currentMsg;
-    if($scope.msg=== "Enjoy!" || $scope.msg=== "Too much!"  ){
+
+
+    if($scope.msg=== 'Enjoy!' | $scope.msg=== 'Too much!'  ){
       $scope.customStyle.style = {"color":"green"};
     }
     else {
