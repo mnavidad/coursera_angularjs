@@ -24,32 +24,40 @@
       }
     </style>
   </head>
-<body>
-  <div class="container">
-  <h1>Shopping List Check Off</h1>
+  <body >
+    <div class="container">
+    <h1>Shopping List Check Off</h1>
 
-  <div class="row">
+    <div class="row" >
 
-    <!-- To Buy List -->
-    <div class="col-md-6">
-     <h2>To Buy:</h2>
-     <ul>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-     </ul>
-     <div class="emptyMessage">Everything is bought!</div>
+      <!-- To Buy List -->
+        <div class="col-md-6" ng-controller='ToBuyController as tobuyController' >
+         <h2>To Buy: </h2>
+         <ul>
+           <li ng-repeat="item1 in tobuyController.toBuyItems">
+             Buy {{item1.itemQty}} {{item1.itemName}} <button class="btn btn-default" ng-click="tobuyController.YesMove($index, item1.itemName, item1.itemQty );">
+               <span class="glyphicon glyphicon-ok"></span> Bought</button>
+           </li>
+
+         </ul>
+         <div class="emptyMessage" ng-if="tobuyController.buyMessage">
+           {{tobuyController.buyMessage}}
+         </div>
+        </div>
+       <div class="col-md-6" ng-controller='BoughtController as boughtController'>
+        <h2>Already Bought:</h2>
+        <ul>
+          <li ng-repeat="item1 in boughtController.boughtItems">
+            Bought {{item1.itemQty}} {{item1.itemName}}
+          </li>
+        </ul>
+        <div class="emptyMessage" ng-if="boughtController.boughtMessage.message">
+          {{boughtController.boughtMessage.message}}
+        </div>
+       </div>
     </div>
 
-    <!-- Already Bought List -->
-    <div class="col-md-6">
-     <h2>Already Bought:</h2>
-     <ul>
-       <li>Bought 10 cookies</li>
-     </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
-    </div>
-  </div>
-</div>
 
-</body>
+
+  </div></body>
 </html>
