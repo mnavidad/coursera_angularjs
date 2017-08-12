@@ -1,0 +1,1 @@
+C:\coursera_angularjs\bin\Microsoft.NodejsTools.WebRole.dll
