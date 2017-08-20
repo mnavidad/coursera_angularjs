@@ -1,0 +1,1 @@
+A front-end application that presents the user with a textbox where they can search the descriptions of menu items, and removed items if not wanted.
