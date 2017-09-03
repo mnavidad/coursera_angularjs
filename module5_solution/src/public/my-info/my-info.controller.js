@@ -8,8 +8,8 @@
     myinfoCtrl.userInfo = SignUpStorage.getObject('Sign-up-Users', false);
 
     if (myinfoCtrl.userInfo) {
-      if (myinfoCtrl.userInfo.dish) {
-        myinfoCtrl.imageUrl = ApiPath + '/images/' + myinfoCtrl.userInfo.dish.short_name + '.jpg'
+      if (myinfoCtrl.userInfo.food) {
+        myinfoCtrl.imageUrl = ApiPath + '/images/' + myinfoCtrl.userInfo.food.short_name + '.jpg'
       }
     }
 
