@@ -10,12 +10,12 @@ angular.module('public')
   signupCtrl.formSuccess = false;
 
   signupCtrl.submit = function () {
-    if (signupCtrl.user.dish) {
-      signupCtrl.user.dish = signupCtrl.user.dish.toUpperCase();
-      var item = MenuService.getMenuItemByShortName(signupCtrl.user.dish)
+    if (signupCtrl.user.food) {
+      signupCtrl.user.food = signupCtrl.user.food.toUpperCase();
+      var item = MenuService.getMenuItemByShortName(signupCtrl.user.food)
       .then(
         function (response) {
-          signupCtrl.user.dish = response.data;
+          signupCtrl.user.food = response.data;
           storeUser();
         },
         function (failure) {
