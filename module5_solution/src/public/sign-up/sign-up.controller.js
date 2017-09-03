@@ -38,7 +38,7 @@ angular.module('public')
         lastname: '',
         email: '',
         phone: '',
-        dish: ''
+        food: ''
       };
       $scope.regForm.$setUntouched();
       $scope.regForm.$setPristine();
