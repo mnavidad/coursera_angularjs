@@ -41,9 +41,9 @@
           </span>
           <br>
 
-        <input type="text" name="phone" placeholder="Phone ###-###-####"
+        <input type="text" name="phone" placeholder="Phone ###.###.####"
           ng-model="signupCtrl.user.phone"
-          pattern="(\d{3})-(\d{3})-(\d{4})">
+          pattern="(\d{3}).(\d{3}).(\d{4})">
           <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
             Phone must be in the format ###-###-####.
           </span>
@@ -52,7 +52,7 @@
         <input type="text" name="dish" placeholder="Menu number of your favourite dish"
           ng-model="signupCtrl.user.dish">
           <span ng-if="signupCtrl.noItem">
-            No such menu number exists! (input format is: one or two letters and one or two numbers without spaces)
+            Pardon menu item cannot be found or does not exist!
           </span>
           <br>
 
@@ -65,7 +65,7 @@
           </div>
 
           <div id="info">
-           <h2 class="text-center" ng-if="signupCtrl.formSuccess">Your information has been saved!</h2>
+           <h2 class="text-center" ng-if="signupCtrl.formSuccess">Your information was saved!</h2>
           </div>
     </form>
   </fieldset>
