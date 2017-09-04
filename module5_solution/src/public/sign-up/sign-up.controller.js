@@ -5,22 +5,22 @@ angular.module('public')
 .controller('signUpController',
  ['$scope', 'MenuService', 'SignUpStorage', function($scope, MenuService, SignUpStorage) {
 
-  var signUpCtrl = this;
-  signUpCtrl.noItem = false;
-  signUpCtrl.formSuccess = false;
+  var signUpController = this;
+  signUpController.noItem = false;
+  signUpController.formSuccess = false;
 
-  signUpCtrl.submit = function () {
-    if (signUpCtrl.user.food) {
-      signUpCtrl.user.food = signUpCtrl.user.food.toUpperCase();
-      var item = MenuService.getMenuItemByShortName(signUpCtrl.user.food)
+  signUpController.submit = function () {
+    if (signUpController.user.food) {
+      signUpController.user.food = signUpController.user.food.toUpperCase();
+      var item = MenuService.getMenuItemByShortName(signUpController.user.food)
       .then(
         function (response) {
-          signUpCtrl.user.food = response.data;
+          signUpController.user.food = response.data;
           storeUser();
         },
         function (failure) {
-          signUpCtrl.noItem = true;
-          signUpCtrl.httpError = failure.data.error;
+          signUpController.noItem = true;
+          signUpController.httpError = failure.data.error;
         }
       );
     } else {
@@ -29,11 +29,11 @@ angular.module('public')
   };
 
     function storeUser() {
-      signUpCtrl.noItem = false;
-      signUpCtrl.formSuccess = true;
+      signUpController.noItem = false;
+      signUpController.formSuccess = true;
 
-      SignUpStorage.storeObject('Sign-up-Users', signUpCtrl.user)
-      signUpCtrl.user = {
+      SignUpStorage.storeObject('Sign-up-Users', signUpController.user)
+      signUpController.user = {
         firstname: '',
         lastname: '',
         email: '',

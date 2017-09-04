@@ -4,7 +4,7 @@
     <form name='registerForm' novalidate>
 
         <input type="text" name="firstname" placeholder="First Name"
-          ng-model="signUpCtrl.user.firstname"
+          ng-model="signUpController.user.firstname"
           required
           minlength="1"
           ng-maxlength="35">
@@ -19,7 +19,7 @@
           <br>
 
         <input type="text" name="lastname" placeholder="Last Name"
-          ng-model="signUpCtrl.user.lastname"
+          ng-model="signUpController.user.lastname"
           required
           minlength="1"
           ng-maxlength="35">
@@ -34,7 +34,7 @@
           <br>
 
         <input type="email" name="email" placeholder="email"
-          ng-model="signUpCtrl.user.email"
+          ng-model="signUpController.user.email"
           required>
           <span ng-if="registerForm.email.$invalid && registerForm.email.$touched">
             enter valid email address
@@ -42,7 +42,7 @@
           <br>
 
         <input type="text" name="phone" placeholder="phone 555-555-5555"
-          ng-model="signUpCtrl.user.phone"
+          ng-model="signUpController.user.phone"
           pattern="(\d{3})-(\d{3})-(\d{4})">
           <span ng-if="registerForm.phone.$invalid && registerForm.phone.$touched">
             phone format 555-555-5555.
@@ -50,22 +50,22 @@
           <br>
 
         <input type="text" name="food" placeholder="Enter food item"
-          ng-model="signUpCtrl.user.food">
-          <span ng-if="signUpCtrl.noItem">
+          ng-model="signUpController.user.food">
+          <span ng-if="signUpController.noItem">
             Pardon menu item cannot be found or does not exist!
           </span>
           <br>
 
         <button
           ng-disabled="registerForm.$invalid"
-          ng-click="signUpCtrl.submit()">Sign Up</button>
+          ng-click="signUpController.submit()">Sign Up</button>
 
           <div style="margin-top: 10px; display:none" >
             Form valid? {{ registerForm.$valid }}
           </div>
 
           <div id="info">
-           <h2 class="text-center" ng-if="signUpCtrl.formSuccess">Your information was saved!</h2>
+           <h2 class="text-center" ng-if="signUpController.formSuccess">Your information was saved!</h2>
           </div>
     </form>
   </fieldset>
