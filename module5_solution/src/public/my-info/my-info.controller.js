@@ -3,21 +3,21 @@
 
   angular.module('public')
   .controller('myInfoController', ['SignUpStorage', 'ApiPath', function(SignUpStorage, ApiPath) {
-    var myinfoCtrl = this;
+    var myInformationCtrl = this;
 
-    myinfoCtrl.userInfo = SignUpStorage.getObject('Sign-up-Users', false);
+    myInformationCtrl.userInfo = SignUpStorage.getObject('Sign-up-Users', false);
 
-    if (myinfoCtrl.userInfo) {
-      if (myinfoCtrl.userInfo.food) {
-        myinfoCtrl.imageUrl = ApiPath + '/images/' + myinfoCtrl.userInfo.food.short_name + '.jpg'
+    if (myInformationCtrl.userInfo) {
+      if (myInformationCtrl.userInfo.food) {
+        myInformationCtrl.imageUrl = ApiPath + '/images/' + myInformationCtrl.userInfo.food.short_name + '.jpg'
       }
     }
 
 
-    myinfoCtrl.deleteUser = function() {
+    myInformationCtrl.deleteUser = function() {
       SignUpStorage.removeRecord('Sign-up-Users');
-      myinfoCtrl.message = 'Not Signed Up Yet. Sign up Now!';
-      myinfoCtrl.userInfo = '';
+      myInformationCtrl.message = 'Not Signed Up Yet. Sign up Now!';
+      myInformationCtrl.userInfo = '';
     };
 
   }]);

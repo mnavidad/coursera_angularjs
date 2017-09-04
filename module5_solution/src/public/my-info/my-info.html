@@ -1,50 +1,50 @@
 <div class="container">
   <h2 class="text-center">User Information</h2>
-  <h3 class="text-center" ng-if="!myinfoCtrl.userInfo">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h3>
+  <h3 class="text-center" ng-if="!myInformationCtrl.userInfo">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h3>
 
-  <div ng-if="myinfoCtrl.userInfo">
+  <div ng-if="myInformationCtrl.userInfo">
 <table id="UserInformation">
   <tr>
     <th>First Name:</th>
-    <td>{{myinfoCtrl.userInfo.firstname}}</td>
+    <td>{{myInformationCtrl.userInfo.firstname}}</td>
   </tr>
   <tr>
     <th>Last Name:</th>
-    <td>{{myinfoCtrl.userInfo.lastname}}</td>
+    <td>{{myInformationCtrl.userInfo.lastname}}</td>
   </tr>
   <tr>
     <th>Email:</th>
-    <td>{{myinfoCtrl.userInfo.email}}</td>
+    <td>{{myInformationCtrl.userInfo.email}}</td>
   </tr>
-  <tr ng-if="myinfoCtrl.userInfo.phone">
+  <tr ng-if="myInformationCtrl.userInfo.phone">
     <th>Phone:</th>
-    <td>{{myinfoCtrl.userInfo.phone}}</td>
+    <td>{{myInformationCtrl.userInfo.phone}}</td>
   </tr>
 </table>
 
-  <hr ng-if="myinfoCtrl.userInfo.food">
-    <div class="favourite" ng-if="myinfoCtrl.userInfo.food">
+  <hr ng-if="myInformationCtrl.userInfo.food">
+    <div class="favourite" ng-if="myInformationCtrl.userInfo.food">
       <h3>Favorite food</h3>
           <div class="menu-item-tile">
               <div class="row">
                 <div class="col-sm-5">
                   <div class="menu-item-photo">
-                    <div>{{myinfoCtrl.userInfo.food.short_name}}</div>
-                    <img class="img-responsive" width="250" height="150" ng-src="{{myinfoCtrl.imageUrl}}" alt="{{myinfoCtrl.userInfo.food.name}}">
+                    <div>{{myInformationCtrl.userInfo.food.short_name}}</div>
+                    <img class="img-responsive" width="250" height="150" ng-src="{{myInformationCtrl.imageUrl}}" alt="{{myInformationCtrl.userInfo.food.name}}">
                   </div>
-                  <div class="menu-item-price">{{myinfoCtrl.userInfo.food.price_small | currency}}<span> {{myinfoCtrl.userInfo.food.small_portion_name}}</span> {{myinfoCtrl.userInfo.food.price_large | currency}} <span>{{myinfoCtrl.userInfo.food.large_portion_name}}</span></div>
+                  <div class="menu-item-price">{{myInformationCtrl.userInfo.food.price_small | currency}}<span> {{myInformationCtrl.userInfo.food.small_portion_name}}</span> {{myInformationCtrl.userInfo.food.price_large | currency}} <span>{{myInformationCtrl.userInfo.food.large_portion_name}}</span></div>
                 </div>
                 <div class="menu-item-description col-sm-7">
-                  <h3 class="menu-item-title">{{myinfoCtrl.userInfo.food.name}}</h3>
-                  <p class="menu-item-details">{{myinfoCtrl.userInfo.food.description}}</p>
+                  <h3 class="menu-item-title">{{myInformationCtrl.userInfo.food.name}}</h3>
+                  <p class="menu-item-details">{{myInformationCtrl.userInfo.food.description}}</p>
                 </div>
               </div>
             </div>
           </div>
 
-    <hr ng-if="myinfoCtrl.userInfo.food">
+    <hr ng-if="myInformationCtrl.userInfo.food">
 
     <div id="delete-user-button" class="text-center">
-      <button class="btn btn-primary" ng-click="myinfoCtrl.deleteUser()">Delete User</button>
+      <button class="btn btn-primary" ng-click="myInformationCtrl.deleteUser()">Delete User</button>
     </div>
   </div>

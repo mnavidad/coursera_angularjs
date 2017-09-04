@@ -5,22 +5,22 @@ angular.module('public')
 .controller('signUpController',
  ['$scope', 'MenuService', 'SignUpStorage', function($scope, MenuService, SignUpStorage) {
 
-  var signupCtrl = this;
-  signupCtrl.noItem = false;
-  signupCtrl.formSuccess = false;
+  var signUpCtrl = this;
+  signUpCtrl.noItem = false;
+  signUpCtrl.formSuccess = false;
 
-  signupCtrl.submit = function () {
-    if (signupCtrl.user.food) {
-      signupCtrl.user.food = signupCtrl.user.food.toUpperCase();
-      var item = MenuService.getMenuItemByShortName(signupCtrl.user.food)
+  signUpCtrl.submit = function () {
+    if (signUpCtrl.user.food) {
+      signUpCtrl.user.food = signUpCtrl.user.food.toUpperCase();
+      var item = MenuService.getMenuItemByShortName(signUpCtrl.user.food)
       .then(
         function (response) {
-          signupCtrl.user.food = response.data;
+          signUpCtrl.user.food = response.data;
           storeUser();
         },
         function (failure) {
-          signupCtrl.noItem = true;
-          signupCtrl.httpError = failure.data.error;
+          signUpCtrl.noItem = true;
+          signUpCtrl.httpError = failure.data.error;
         }
       );
     } else {
@@ -29,19 +29,19 @@ angular.module('public')
   };
 
     function storeUser() {
-      signupCtrl.noItem = false;
-      signupCtrl.formSuccess = true;
+      signUpCtrl.noItem = false;
+      signUpCtrl.formSuccess = true;
 
-      SignUpStorage.storeObject('Sign-up-Users', signupCtrl.user)
-      signupCtrl.user = {
+      SignUpStorage.storeObject('Sign-up-Users', signUpCtrl.user)
+      signUpCtrl.user = {
         firstname: '',
         lastname: '',
         email: '',
         phone: '',
         food: ''
       };
-      $scope.regForm.$setUntouched();
-      $scope.regForm.$setPristine();
+      $scope.registerForm.$setUntouched();
+      $scope.registerForm.$setPristine();
     }
 
 }]);

@@ -1,71 +1,71 @@
 <div class="container">
   <fieldset>
     <legend>Sign up for the newsletter</legend>
-    <form name='regForm' novalidate>
+    <form name='registerForm' novalidate>
 
         <input type="text" name="firstname" placeholder="First Name"
-          ng-model="signupCtrl.user.firstname"
+          ng-model="signUpCtrl.user.firstname"
           required
           minlength="1"
           ng-maxlength="35">
 
           <span
-            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            ng-if="(registerForm.firstname.$error.minlength || registerForm.firstname.$error.required) && registerForm.firstname.$touched">
             First name is required!
           </span>
-          <span ng-if="regForm.firstname.$error.maxlength && regForm.firtsname.$touched">
+          <span ng-if="registerForm.firstname.$error.maxlength && registerForm.firtsname.$touched">
             First name can be only 35 characters long
           </span>
           <br>
 
         <input type="text" name="lastname" placeholder="Last Name"
-          ng-model="signupCtrl.user.lastname"
+          ng-model="signUpCtrl.user.lastname"
           required
           minlength="1"
           ng-maxlength="35">
 
           <span
-            ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+            ng-if="(registerForm.lastname.$error.minlength || registerForm.lastname.$error.required) && registerForm.lastname.$touched">
             Last name is required!
           </span>
-          <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+          <span ng-if="registerForm.lastname.$error.maxlength && registerForm.lastname.$touched">
             Last name can be only 35 characters long
           </span>
           <br>
 
         <input type="email" name="email" placeholder="email"
-          ng-model="signupCtrl.user.email"
+          ng-model="signUpCtrl.user.email"
           required>
-          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+          <span ng-if="registerForm.email.$invalid && registerForm.email.$touched">
             enter valid email address
           </span>
           <br>
 
         <input type="text" name="phone" placeholder="phone 555-555-5555"
-          ng-model="signupCtrl.user.phone"
+          ng-model="signUpCtrl.user.phone"
           pattern="(\d{3})-(\d{3})-(\d{4})">
-          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+          <span ng-if="registerForm.phone.$invalid && registerForm.phone.$touched">
             phone format 555-555-5555.
           </span>
           <br>
 
         <input type="text" name="food" placeholder="Enter food item"
-          ng-model="signupCtrl.user.food">
-          <span ng-if="signupCtrl.noItem">
+          ng-model="signUpCtrl.user.food">
+          <span ng-if="signUpCtrl.noItem">
             Pardon menu item cannot be found or does not exist!
           </span>
           <br>
 
         <button
-          ng-disabled="regForm.$invalid"
-          ng-click="signupCtrl.submit()">Sign Up</button>
+          ng-disabled="registerForm.$invalid"
+          ng-click="signUpCtrl.submit()">Sign Up</button>
 
           <div style="margin-top: 10px; display:none" >
-            Form valid? {{ regForm.$valid }}
+            Form valid? {{ registerForm.$valid }}
           </div>
 
           <div id="info">
-           <h2 class="text-center" ng-if="signupCtrl.formSuccess">Your information was saved!</h2>
+           <h2 class="text-center" ng-if="signUpCtrl.formSuccess">Your information was saved!</h2>
           </div>
     </form>
   </fieldset>
