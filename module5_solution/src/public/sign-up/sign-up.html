@@ -6,30 +6,30 @@
         <input type="text" name="firstname" placeholder="First Name"
           ng-model="signupCtrl.user.firstname"
           required
-          minlength="5"
-          ng-maxlength="25">
+          minlength="1"
+          ng-maxlength="35">
 
           <span
             ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
             First name is required!
           </span>
           <span ng-if="regForm.firstname.$error.maxlength && regForm.firtsname.$touched">
-            First name can be only 25 characters long
+            First name can be only 35 characters long
           </span>
           <br>
 
         <input type="text" name="lastname" placeholder="Last Name"
           ng-model="signupCtrl.user.lastname"
           required
-          minlength="5"
-          ng-maxlength="25">
+          minlength="1"
+          ng-maxlength="35">
 
           <span
             ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
             Last name is required!
           </span>
           <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
-            Last name can be only 25 characters long
+            Last name can be only 35 characters long
           </span>
           <br>
 
